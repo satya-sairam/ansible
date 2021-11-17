@@ -10,10 +10,18 @@
  - name: sample play 2
    hosts: all
    tasks:
-    - name: print play level variables
+    - name: print task level variables
       ansible.builtin.debug:
         msg: "{{URL}}"
       vars:
          URL: task.google.com
+
+
+ - name: sample play 3
+   hosts: all
+   tasks:
+    - name: print inventory variables
+      ansible.builtin.debug:
+        msg: "{{URL}}"
 
 
