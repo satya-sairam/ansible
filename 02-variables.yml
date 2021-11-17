@@ -26,3 +26,13 @@
 
 
 
+ - name: sample play 4
+   hosts: all
+   vars:
+    file: vars.yml
+   tasks:
+    - name: print inventory variables
+      ansible.builtin.debug:
+        msg: "{{URL}}"
+
+
