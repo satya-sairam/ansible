@@ -1,5 +1,5 @@
 resource "aws_security_group" "sample_sg" {
-  Name                = "allow_ssh"
+  name                = "allow_ssh"
   description         = "allow_ssh"
 
   ingress {
