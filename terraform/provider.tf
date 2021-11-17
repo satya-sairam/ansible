@@ -4,9 +4,9 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket             = "terraform-my-first-bucket"
+    bucket             = "new-bucket-ansible-terraform"
     key                = "ansible-terraform/terraform_remote-state_file"
     region             = "us-east-1"
-    dynamodb_table     = "my-dynamodb-table-terraform"
+    dynamodb_table     = "new_dynamodb_table"
   }
 }
