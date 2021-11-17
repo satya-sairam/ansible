@@ -7,6 +7,7 @@ terraform {
     bucket           = "terraform-ansible-bucket"
     key              = "sample/terraform.state"
     region           = "us-east-1"
-    dynamodb_table   = "my_dynamoDB_table"
+    dynamodb_table   = "dynamo_DB_table"
   }
 }
+
