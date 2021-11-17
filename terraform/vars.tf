@@ -1,1 +1,1 @@
-variable COMPONENTS {}
+variable "COMPONENTS" {}
