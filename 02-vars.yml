@@ -13,7 +13,7 @@
     - name: print play level variables
       ansible.builtin.debug:
         msg: "{{URL}}"
-        vars:
+      vars:
          URL: task.google.com
 
 
