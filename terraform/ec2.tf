@@ -13,6 +13,7 @@ resource "local_file" "inventory-file" {
 }
 
 resource "aws_route53_record" "records" {
+  depends_on         = [aws_instance.sample]
   count              = length(var.COMPONENTS)
   name               = element(var.COMPONENTS, count.index )
   type               = "A"
