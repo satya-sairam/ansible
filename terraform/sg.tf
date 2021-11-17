@@ -19,3 +19,4 @@ resource "aws_security_group" "sample_sg" {
     Name              = "allow_all"
   }
 }
+
