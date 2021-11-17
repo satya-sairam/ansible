@@ -1,4 +1,4 @@
--name: print hello
+-name: sample play
 hosts: all
 tasks:
   -name: print my first statement
