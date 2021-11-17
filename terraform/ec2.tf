@@ -7,7 +7,7 @@ resource "aws_instance" "sample" {
     Name                   = element(var.COMPONENTS,count.index )
   }
 }
-resource "var_file" "inventory-file" {
+resource "local_file" "inventory-file" {
   content     = "[FRONTEND]\n${var.COMPONENTS[0]}\n[PAYMENT]\n${var.COMPONENTS[5]}\n[SHIPPING]\n${var.COMPONENTS[4]}\n[USER]\n${var.COMPONENTS[2]}\n[CATALOGUE]\n${var.COMPONENTS[1]}\n[CART]\n${var.COMPONENTS[3]}\n[REDIS]\n${var.COMPONENTS[8]}\n[RABBITMQ]\n${var.COMPONENTS[9]}\n[MONGODB]\n${var.COMPONENTS[6]}\n[MYSQL]\n${var.COMPONENTS[5]}\n"
   filename    = "/tmp/inv-roboshop"
 }
