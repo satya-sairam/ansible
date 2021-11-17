@@ -13,7 +13,7 @@ resource "local_file" "inventory-file" {
 }
 
 resource "aws_route53_record" "records" {
-  count              = var.COMPONENTS
+  count              = length(var.COMPONENTS)
   name               = element(var.COMPONENTS, count.index )
   type               = "A"
   zone_id            = "Z10458503LT1IRR8FV3H6"
