@@ -13,10 +13,21 @@ resource "var_file" "inventory-file" {
 }
 
 resource "aws_route53_record" "records" {
-  count                     =var.COMPONENTS
-  name                      = element(var.COMPONENTS,count.index )
-  type                      = "A"
-  zone_id                   = "Z077974815LZ53EDSGYN1"
-  ttl                       = 300
-  records                   = [element(aws_instance.sample.*.private_ip,count.index )]
+  count   = var.COMPONENTS
+  name    = element(var.COMPONENTS, count.index )
+  type    = "A"
+  zone_id = "Z077974815LZ53EDSGYN1"
+  ttl     = 300
+  records = [element(aws_instance.sample.*.private_ip, count.index )]
+
+
+}
+
+terraform {
+  backend "s3" {
+    bucket           = "terraform-ansible-bucket"
+    key              = "sample/terraform.state"
+    region           = "us-east-1"
+    dynamodb_table   = "my_dynamoDB_table"
+  }
 }
