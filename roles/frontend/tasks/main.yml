@@ -4,15 +4,8 @@
     state: installed
 
 
-#- name: Remove old content
-#  ansible.builtin.file:
-#    path: /usr/share/nginx/html
-#    state: absent
-#
-#
-#- name: Download and Extract content
-#  ansible.builtin.unarchive:
-#    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-#    dest: /tmp
-#    remote_src: yes
-
+- name: start nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: yes
