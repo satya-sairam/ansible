@@ -1,0 +1,11 @@
+- name: intsall nginx
+  ansible.builtin.debug:
+    name: nginx
+    state: present
+
+
+
+- name: start nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
