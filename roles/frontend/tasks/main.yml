@@ -31,7 +31,7 @@
 
 
 
--name : restart nginx
+- name : restart nginx
  systemd:
    name: nginx
    state: restarted
