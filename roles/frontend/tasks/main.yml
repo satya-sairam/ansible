@@ -19,7 +19,7 @@
 
 - name: copy the extracted file
   copy:
-    src: /tmp/frontend/static/
+    src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html
     remote_src: yes
 
