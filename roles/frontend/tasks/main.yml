@@ -32,7 +32,7 @@
 
 
 - name : restart nginx
- systemd:
+  systemd:
    name: nginx
    state: restarted
    enable: yes
