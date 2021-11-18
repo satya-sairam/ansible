@@ -1,5 +1,5 @@
 - name: intsall nginx
-  ansible.builtin.debug:
+  ansible.builtin.yum:
     name: nginx
     state: present
 
