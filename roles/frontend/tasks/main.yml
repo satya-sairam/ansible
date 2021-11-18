@@ -4,8 +4,35 @@
     state: installed
 
 
-- name: start nginx
-  ansible.builtin.systemd:
-    name: nginx
-    state: started
-    enabled: yes
+- name: remove old content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+
+- name: download and extract content
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+
+- name: copy the extracted file
+  copy:
+    src: /tmp/fronted/static/
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+
+- name: copy the roboshop conf
+  copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+
+
+-name : restart nginx
+ systemd:
+   name: nginx
+   state: restarted
+   enable: yes
