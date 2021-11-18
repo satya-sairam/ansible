@@ -8,7 +8,7 @@ resource "aws_instance" "sample" {
   }
 }
 resource "local_file" "inventory-file" {
-  content     = "[FRONTEND]\n${var.COMPONENTS[0]}\n[PAYMENT]\n${var.COMPONENTS[5]}\n[SHIPPING]\n${var.COMPONENTS[4]}\n[USER]\n${var.COMPONENTS[2]}\n[CATALOGUE]\n${var.COMPONENTS[1]}\n[CART]\n${var.COMPONENTS[3]}\n[REDIS]\n${var.COMPONENTS[8]}\n[RABBITMQ]\n${var.COMPONENTS[9]}\n[MONGODB]\n${var.COMPONENTS[6]}\n[MYSQL]\n${var.COMPONENTS[5]}\n"
+  content     = "[FRONTEND]\n${aws_instance.sample.*.private_ip[0]n[PAYMENT]\n${aws_instance.sample.*.private_ip[0}\n[SHIPPING]\n${aws_instance.sample.*.private_ip[0}}\n[USER]\n${aws_instance.sample.*.private_ip[0}}\n[CATALOGUE]\n${aws_instance.sample.*.private_ip[0}}\n[CART]\n${aws_instance.sample.*.private_ip[0}}\n[REDIS]\n${aws_instance.sample.*.private_ip[0}}\n[RABBITMQ]\n${aws_instance.sample.*.private_ip[0}}\n[MONGODB]\n${aws_instance.sample.*.private_ip[0}}\n[MYSQL]\n${aws_instance.sample.*.private_ip[0}}\n"
   filename    = "/tmp/inv-roboshop"
 }
 
@@ -20,6 +20,7 @@ resource "aws_route53_record" "records" {
   zone_id            = "Z10458503LT1IRR8FV3H6"
   ttl                = 300
   records            = [element(aws_instance.sample.*.private_ip, count.index )]
+  //                   [element(aws_instance.instances.*.private_ip, count.index)]
 
 }
 
