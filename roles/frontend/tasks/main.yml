@@ -1,17 +1,17 @@
 - name: intsall nginx
-  ansible.builtin.yum:
+  yum:
     name: nginx
     state: installed
 
 
 - name: remove old content
-  ansible.builtin.file:
+  file:
     path: /usr/share/nginx/html
     state: absent
 
 
 - name: download and extract content
-  ansible.builtin.unarchive:
+  unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
     remote_src: yes
@@ -33,6 +33,6 @@
 
 - name : restart nginx
   systemd:
-   name: nginx
-   state: restarted
-   enable: yes
+    name: nginx
+    state: restarted
+    enabled: yes
