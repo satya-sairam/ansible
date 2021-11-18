@@ -1,8 +1,7 @@
 - name: intsall nginx
   ansible.builtin.yum:
     name: nginx
-    state: present
-
+    state: installed
 
 
 - name: start nginx
