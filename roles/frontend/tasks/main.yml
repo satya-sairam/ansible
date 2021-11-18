@@ -1,7 +1,7 @@
 - name: install nginx
   yum:
     name: nginx
-    state: latest
+    state: present
 
 
 - name: remove old content
