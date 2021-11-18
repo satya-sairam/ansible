@@ -1,6 +1,8 @@
 - name: frontend setup
   hosts: FRONTEND
   become: yes
-  tags: frontend
-  roles:
-    - name: frontend
+  tasks:
+    yum:
+      name: nginx
+      state: present
+
