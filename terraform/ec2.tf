@@ -9,7 +9,7 @@ resource "aws_instance" "instances" {
 }
 
 resource "local_file" "inventory-file" {
-  content     = "[FRONTEND]\n${aws_instance.instances.*.private_ip[0]}"
+  content     = "[FRONTEND]\n${aws_instance.instances.*.private_ip[0]}\n"
 #  \n[PAYMENT]\n${aws_instance.instances.*.private_ip[5]}\n[SHIPPING]\n${aws_instance.instances.*.private_ip[4]}\n[USER]\n${aws_instance.instances.*.private_ip[2]}\n[CATALOGUE]\n${aws_instance.instances.*.private_ip[1]}\n[CART]\n${aws_instance.instances.*.private_ip[3]}\n[REDIS]\n${aws_instance.instances.*.private_ip[8]}\n[RABBITMQ]\n${aws_instance.instances.*.private_ip[9]}\n[MONGODB]\n${aws_instance.instances.*.private_ip[6]}\n[MYSQL]\n${aws_instance.instances.*.private_ip[7]}\n"
   filename    = "/tmp/inv-roboshop1"
 }
